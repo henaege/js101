@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Fight the Dragon</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style type="text/css" media="screen">
+
+        </style>
+    </head>
+    <body>
+        <div id="game-wrapper" class="text-center">
+            <img src="./dragon-assets/dragon.png" name="dragonImage">
+            <div id="message" class="text-center">You have encountered a terrifying dragon! Do you fight or flee? Should you choose to fight, you must roll 9 or higher or suffer the consequences.</div>
+            <div class"text-center">
+                <button class="btn btn-default" onclick="rollDice()">Fight!</button>
+                <button class="btn btn-default" onclick="flee()">Flee!</button>
+            </div>
+            <div class="text-center">
+                <img src="dragon-assets/d1.gif" name="die1Image">
+                <img src="dragon-assets/d1.gif" name="die2Image">
+            </div>
+            <div class="text-center">
+                <div class="col-md-6">
+                    <h2>Your Health:</h2>
+                    <h2 id="heroHp">20</h2>
+                </div>
+                <div class="col-md-6">
+                    <h2>Dragon's Health:</h2>
+                    <h2 id="dragonHp">20</h2>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript">
+
+        var heroHealth = 20;
+        var dragonHealth = 20;
+
+        function rollDice(){
+            // console.log("The user clicked the fight button");
+            var randomDie1 = Math.ceil(Math.random() * 6);
+            var randomDie2 = Math.ceil(Math.random() * 6);
+            // console.log(randomDie1);
+            // console.log(randomDie2);
+            var die1 = "dragon-assets/d" + randomDie1 +".gif";
+            var die2 = "dragon-assets/d" + randomDie2 +".gif";
+            document.images.die1Image.src = die1;
+            document.images.die2Image.src = die2;
+
+            if (randomDie1 + randomDie2 >= 8) {
+                document.images.dragonImage.src = "http://i244.photobucket.com/albums/gg33/kathleenthedragon07/dragon%20%20images/dungeons-and-dragons-rulebook-close.jpg";
+                document.getElementById('message').innerHTML = "The Dragon withstands your mighty blow!";
+                dragonHealth -= 2;
+                document.getElementById('dragonHp').innerHTML = dragonHealth;
+                if (dragonHealth <= 0) {
+                    document.images.dragonImage.src = "http://s3.crackedcdn.com/blogimages/2009/08/conanintro.jpg";
+                    document.getElementById('message').innerHTML = "You have defeated the dragon! Your legend grows!";
+                }
+                
+            } 
+            
+            else {
+                document.images.dragonImage.src = "http://s2.quickmeme.com/img/0d/0d3d2e2a13dafef87a90760ad532b08da2638db2c026822a4861e26eb62b7ad9.jpg";
+                document.getElementById('message').innerHTML = "The Dragon's fiery breath singes your eyebrows!";
+                heroHealth -=2;
+                document.getElementById('heroHp').innerHTML = heroHealth;
+                if (heroHealth <= 0) {
+                    document.images.dragonImage.src = "http://www.wallpaperawesome.com/wallpapers-awesome/wallpapers-fantasy-fairy-dragon-gnome-knights-princesses-awesome/wallpaper-warrior-defeated-by-dragon.jpg";
+                    document.getElementById('message').innerHTML = "You definitely just got defeated. Bummer.";
+                }
+            }
+            
+        }
+        function flee() {
+            document.images.dragonImage.src = "http://www.systemaspetsnaz.com/wp-content/uploads/2016/06/stop-being-a-coward.jpg";
+            document.getElementById('message').innerHTML = " "
+        }
+        
+        if (heroHealth <= 0) {
+            document.images.dragonImage.src = "http://www.wallpaperawesome.com/wallpapers-awesome/wallpapers-fantasy-fairy-dragon-gnome-knights-princesses-awesome/wallpaper-warrior-defeated-by-dragon.jpg";
+            document.getElementById('message').innerHTML = "You definitely just got defeated. Bummer.";
+        }
+         if (dragonHealth <= 0) {
+            document.images.dragonImage.src = "http://s3.crackedcdn.com/blogimages/2009/08/conanintro.jpg";
+            document.getElementById('message').innerHTML = "You have defeated the dragon! Your legend grows!";
+            }
+    
+    </script>
+    </body>
+</html>

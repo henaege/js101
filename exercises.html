@@ -1,0 +1,36 @@
+<script>
+
+    var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var userInput = prompt("What day is it?");
+    if (userInput == "0" || userInput == "6") {
+        console.log("Sleep in!");
+    } else {
+        console.log("Go to Work!");
+    }
+
+    var subTotal = prompt("How much is the bill?");
+    var service = prompt("How was the service (good, fair, or bad?");
+    var split = prompt("How many ways would you like to split the bill?");
+    if (service == "good") {
+        var tip = parseFloat(subTotal) * 0.2;
+        var total = parseFloat(subTotal) + tip;
+        var totalPerPerson = total / parseFloat(split);
+        console.log("Sub-Total: $" + subTotal + " Tip amount: " + tip + ". " + "Total amount: " + total + ". " + "Total per person: " + totalPerPerson + ".")
+    }
+    else if ( service == "fair") {
+        var tip = parseFloat(subTotal) * 0.15;
+        var total = parseFloat(subTotal) + tip;
+        var totalPerPerson = total / parseFloat(split);
+        console.log("Sub-Total: $" + subTotal + " Tip amount: " + tip + ". " + "Total amount: " + total + ". " + "Total per person: " + totalPerPerson + ".")
+    }
+    else if (service == "bad") {
+        var tip = parseFloat(subTotal) * 0.1;
+        var total = parseFloat(subTotal) + tip;
+        var totalPerPerson = total / parseFloat(split);
+        console.log("Sub-Total: $" + subTotal + " Tip amount: $" + tip + " Total amount: $" + total + " Total per person: $" + totalPerPerson)
+    }
+    else {
+        console.log("Something's not right...")
+    }
+
+</script>

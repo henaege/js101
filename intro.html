@@ -1,0 +1,39 @@
+<script type="text/javascript">
+// Open an alert window
+    // window.alert("Hello, World!");
+    // Log a message to the console
+    console.log("Hello, World!");
+    // Write tot he document itself - JS is changing the DOM directly
+    document.write("Hello, World!");
+
+    var fullName = "Drew Tolliver"; // Declaring and assigning a variable
+    fullName = "Sean B."; //var already declared, just assigning it here
+    // Prompt takes 2 arguments: the message to display and the default answer/response(optional)
+    var getUserName = prompt("What is your name?", "Drew");
+    console.log(getUserName);
+
+
+    var myNum = Math.ceil(Math.random() * 10)
+    console.log(myNum);
+    var userNum = prompt("Please enter a number between 1 and 10");
+    if (userNum < 1) {
+        console.log("That's too low, try again.");
+    }
+    else if (userNum > 10){
+        console.log("That's too high, try again");
+    }
+    else if (isNaN(userNum)) {
+        console.log("That doesn't seem to be a number...");
+    }
+    else if (userNum == myNum) {
+        console.log("You're right!");
+    }
+    else if (Math.abs(userNum - myNum >= 2)) {
+        console.log("** Sigh... **");
+    }
+    else if (Math.abs(userNum - myNum <= 2)) {
+        console.log("So close");
+    }
+
+
+</script>
