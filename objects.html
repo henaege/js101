@@ -1,0 +1,47 @@
+<script type="text/javascript">
+// This is an Array (square brackets)
+    var students = [];
+
+// This is an object (curly braces)
+    var student = {};
+
+// Objects have properties (or keys)
+console.log(student.name);
+student.name = "Hayes";
+console.log(student.name);
+student.age = 27;
+console.log(student);
+
+student2 = {
+    name: 'Stephen',
+    profession: 'Student',
+    language: 'JavaScript'
+}
+
+student3 = {
+    name: 'Drew',
+    friends: [
+        'YingRong',
+        'Carla',
+        'Daniel'
+    ],
+    sayHello: function(nameOfFriend) {
+        console.log("Hello, " + nameOfFriend)
+    },
+    addFriend: function(nameOfFriend) {
+        // console.log(this)
+        this.friends.push(nameOfFriend);
+
+    }
+}
+
+function addFriend (object, nameOfFriend) {
+    object.friends.push(nameOfFriend);
+}
+
+console.log(student3);
+console.log(student3.friends[1]);
+student3.sayHello(student3.friends[0]);
+// student3.addFriend("Shane");
+addFriend(student3, "Shane")
+</script>

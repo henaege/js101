@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            // document.getElementById('main').innerHTML = "The text has been replaced";
+
+            function callMe(bool) {
+                console.log("Hello from inside of callMe");
+                return bool;
+            }
+
+            function runFunction() {
+                randomNum = Math.random();
+                if (randomNum > 0.5) {
+                    var arg = true;
+                }else {
+                    var arg = false;
+                }
+                var num = 5;
+                console.log(num);
+                theBoolean = callMe(arg);
+                if (theBoolean){
+                    console.log("Boolean is True");
+                }else {
+                    console.log("Boolean is False");
+                }
+                console.log(num);
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            Replace this text
+            <button onclick="runFunction();">Click Me</button>
+        </div>
+    </body>
+</html>
