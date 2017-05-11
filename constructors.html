@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+    function Player(name, position, avgM, avgP, avgR, starter) {
+        this.name     = name;
+        this.position = position;
+        this.avgM     = avgM;
+        this.avgP     = avgP;
+        this.avgR     = avgR;
+        this.starter  = starter;
+
+        // this.reportPPM = function() {
+        //     let ppm = this.avgP / this.avgM;
+        //     ppm = Math.round(ppm * 100) / 100
+        //     return ppm
+        // }
+
+    }
+
+Player.prototype.reportPPM = function() {
+            let ppm = this.avgP / this.avgM;
+            ppm = Math.round(ppm * 100) / 100
+            return ppm
+        }
+
+var player1 = new Player("Steph Curry", "PG", 39.2, 25.3, 4.5, true);
+var player2 = new Player("Kevin Durant", "SF", 41.2, 25.1, 8.3, true);
+var player3 = new Player("Klay Thompson", "SG", 40.2, 22.3, 3.7, true);
+// console.log(player1.name);
+// console.log(player1.position);
+// console.log(player1);
+// console.log(player1.reportPPM());
+// console.log(player2.reportPPM());
+// console.log(player3.reportPPM());
+console.log(player1.reportPPM())
+</script>
+
