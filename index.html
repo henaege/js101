@@ -14,9 +14,16 @@
                 margin-bottom: 30px;
                 cursor: url(./marker.cur), default;
             }
+            #main-image {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
             body {
                 /*background-color: #505050;*/
-                background-image: url('background2.jpg');
+                /*background-image: url('background2.jpg');*/
                 
             }
              .navbar {
@@ -105,8 +112,11 @@
                 padding: 20px;
                 font-size: 4em; 
                 font-weight: 900;
-                color: white;
-                text-shadow: 2px 1px black;
+                background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+                background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+                color:transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
             }
             
             /*#image {
@@ -118,49 +128,67 @@
                 margin-top: 20px;
                 outline: none;
             }
+            #timer {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-radius: 0px;
+                background: #00816a;
+                display: inline-block;
+                font-size: 24px;
+                color:aqua;
+                border: 2px solid purple;
+            }
+            .btn {
+                border-radius: 0px;
+            }
 
         </style>
     </head>
     <body>
+        <img id='main-image' src='./background2.jpg'>
         <div class="row">
             <div id="header" class="container-fluid">
                 <div id="header-text" class="col-md-12 text-center">
-                    Drew's Picture Draw Deluxe
+                    Drew's Picture Draw Deluxe Super Turbo
                 </div>
             </div>
         </div>
         <div class="row">
-            <div id="controls" class="col-md-5">
-                <div id="label1"class="col-md-6 text-center">
+            <div id="controls" class="col-md-5 col-sm-5">
+                <div id="label1"class="col-md-6 col-sm-6 text-center">
                     <label>Choose your marker color</label>
                 </div>
-                <div id="color-container" class="col-md-6 text-center">
+                <div id="color-container" class="col-md-6 col-sm-6 text-center">
                     <input type="color" id="color-picker"/>
                 </div>
         
-                <div id="label2"class="col-md-6 text-center">
+                <div id="label2"class="col-md-6 col-sm-6 text-center">
                     <label>Choose your marker size</label>
                 </div>
-                <div id="thickness-container" class="col-md-6 text-center">
+                <div id="thickness-container" class="col-md-6 col-sm-6 text-center">
                     <input type="number" id="thickness" class="text-center" value="6"/>
                 </div>
 
-                <div id="label3"class="col-md-6 text-center">
+                <!--<div id="label3"class="col-md-6 col-sm-6 text-center">
                     <label>Choose background color</label>
                 </div>
-                <div id="background-color-picker" class="col-md-6 text-center">
+                <div id="background-color-picker" class="col-md-6 col-sm-6 text-center">
                     <input type="color" id="color-picker-background"/>
-                </div>
+                </div>-->
 
-               <div id="button-container" class="col-md-6 col-md-offset-3 text-center">
+               <div id="button-container" class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center">
                     <button id="clear" class="btn btn-default text-center" role="button" onclick="clearCanvas()">Clear Canvas</button>
                 </div>
                                 
             </div>
-            <div class="col-md-7 text-center">
+            <div class="col-md-7 col-sm-7 text-center">
                 <canvas id="canvas" height="500px" width="500px"></canvas>
             </div>
             
+        </div>
+        <div class="row">
+                <div class="col-md-4 col-md-off-4 col-sm-4 col-md-offset-4 text-center" id="timer"><span id="time-left">:60 </span>seconds left! <button id="start" class="btn btn-danger text-center" role="button" onclick="reset()">Start Timer</button></div>
+            </div>
         </div>
         <!--<img id="image" src="background1.png">-->
         

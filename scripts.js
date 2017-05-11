@@ -8,11 +8,33 @@ var color = "#000";
 var thickness = 6;
 var colorPicker = document.getElementById('color-picker');
 var thicknessPicker = document.getElementById('thickness');
-var canvasColor = document.getElementById('background-color-picker').style.background-color;
+// var canvasColor = document.getElementById('background-color-picker').style.background-color;
 var mouseDown = false;
 var mousePosition = {};
 var lastMousePosition = null;
 
+// function Timer(id, endtime) {
+//     this.id = id;
+//     this.endtime = endtime;
+//     let clock = document.getElementById(id);
+//     this.secondsSpan = clock.querySelector('.seconds');
+// }
+
+// Timer.prototype.setTimeRemaining = function(){
+//         this.seconds = 45;
+// }
+
+// Timer.prototype.updateTimer = function(){
+//     this.getTimeRemaining();
+//     this.secondsSpan.innerHTML = this.seconds;
+// }
+
+// var endTime = new Date(Date.parse('December 25, 2017'));
+
+// var pictionaryTimer = new Timer('time-unit', endTime);
+// setInterval(function(){
+//     pictionaryTimer.updateTimer();
+// }, 1000);
 
 var clearCanvas = function(){
     context.clearRect(0,0,500,500)
@@ -85,3 +107,22 @@ canvas.addEventListener('mousemove', function(event){
 
     }
 });
+
+function startTimer(duration, display) {
+    var timer = duration, seconds;
+    setInterval(function() {
+        seconds = parseInt(timer);
+        seconds = seconds < 10 ? "0" + seconds:seconds;
+        if (seconds >= 0){
+        display.textContent = ":" + seconds + " ";
+        timer--;
+        }
+
+    }, 1000);
+};
+
+function reset() {
+    var time = 60;
+    display = document.querySelector('#time-left', '#timer', '#start');
+    startTimer(time, display);
+};
